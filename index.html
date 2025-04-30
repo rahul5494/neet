@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NEET Practice Test</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link type="image/png" sizes="96x96" rel="icon" href="icons8-doctor-96.png">
+  <!-- MathJax with mhchem for Chemistry -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        packages: ['base', 'mhchem']
+      },
+      loader: {
+        load: ['[tex]/mhchem']
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>NEET Practice Test</h1>
+
+    <div class="selector">
+      <select id="subject">
+        <option value="" disabled selected>Select Subject</option>
+        <option value="Biology">Biology</option>
+        <option value="Physics">Physics</option>
+        <option value="Chemistry">Chemistry</option>
+        <option value="Mixed(Atleast 1/5 qestions from Physics and Chemistry and at least 2/5 Questions from BIO but total is 5 questions)">All</option>
+      </select>
+
+      <select id="questionCount">
+        <option value="" disabled selected>Number of Questions</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+      </select>
+
+      <button onclick="startTest()">Start Test</button>
+    </div>
+
+    <div id="loading" class="loading">
+      <div class="spinner"></div>
+      <p id="loadingText">Loading Questions...</p>
+    </div>
+
+    <div id="quizContainer"></div>
+
+    <button id="submitBtn" onclick="submitTest()">Submit Test</button>
+  </div>
+  <div id="resultModal" class="modal">
+    <div class="modal-content">
+      <p id="resultText"></p>
+      <button onclick="closeResultModal()">OK</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
